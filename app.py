@@ -28,7 +28,7 @@ def refreshTable():
 
 root = Tk()
 root.title("Cadastro de Filiados")
-root.geometry("1100x790")
+root.geometry("1100x680")
 my_tree = ttk.Treeview(root)
 
 ph1 = tk.StringVar()
@@ -112,12 +112,52 @@ def cadastrar():
 def resetar():
     janela_pesquisa = tk.Toplevel(root)
     janela_pesquisa.title("Pesquisa de Filiados")
-    janela_pesquisa.geometry("1100x790")
+    janela_pesquisa.geometry("1100x680")
 
     label = Label(janela_pesquisa, text="PESQUISA DE FILIADOS", font=('Arial Bold', 30))
     label.grid(row=0, column=0, columnspan=8, rowspan=2, padx=310, pady=20) 
+
+    tree = ttk.Treeview(janela_pesquisa,selectmode="browse",column=("CPF", "Nome","S_Nome","Endereco","Telefone","EMAIL"), show='headings')
+
+    # tree.column("column1", width=200, minwidth=50, stretch=NO)
+    # tree.heading("#1", text='Nome')
+
+    # tree.column("column2", width=200, minwidth=50, stretch=NO)
+    # tree.heading("#2", text='Endereço')
+
+    # tree.column("column3", width=200, minwidth=50, stretch=NO)
+    # tree.heading("#3", text='Telefone')  
+
+    tree.grid(row=0, column=0,columnspan=5, rowspan=11, padx=10, pady=300)
+
+    # tree['columns'] = ("CPF","Nome","S_Nome","Endereco","Telefone")
+
+
+    tree.column("CPF", anchor=W, minwidth=80, width=170)
+    tree.column("Nome", anchor=W, minwidth=80, width=160)
+    tree.column("S_Nome", anchor=W, minwidth=80, width=150)
+    tree.column("Endereco", anchor=W, minwidth=80, width=195)
+    tree.column("Telefone", anchor=W, minwidth=80, width=150)
+    tree.column("EMAIL", anchor=W, minwidth=80, width=180)
+
+    tree.heading("CPF", text="Titulo", anchor=W)
+    tree.heading("Nome", text="Nome", anchor=W)
+    tree.heading("S_Nome", text="S_Nome", anchor=W)
+    tree.heading("Endereco", text="Endereco", anchor=W)
+    tree.heading("Telefone", text="Telefone", anchor=W)   
+    tree.heading("EMAIL", text="EMAIL", anchor=W) 
+
+
+    estidLabe = Label(janela_pesquisa, text="Titulo :", font=('Arial', 15))
+    nomeLabe = Label(janela_pesquisa, text="Nome :", font=('Arial', 15))
+    enderecoLabe = Label(janela_pesquisa, text="Endereco :", font=('Arial', 15))
+
+
+    estidLabe.grid(row=1, column=0, columnspan=1, padx=305, pady=1)
+    nomeLabe.grid(row=2, column=0, columnspan=1, padx=50, pady=5)
+    enderecoLabe.grid(row=3, column=0, columnspan=1, padx=50, pady=5)
+
   
-    
     # decision = messagebox.askquestion("Warning!!", "DELETAR TODOS DADOS?")
     # if decision != "yes":
     #     return 
@@ -260,7 +300,7 @@ def atualizar():
 label = Label(root, text="CADASTRO DE FILIADOS", font=('Arial Bold', 30))
 label.grid(row=0, column=0, columnspan=8, rowspan=2, padx=50, pady=40)
 
-estidLabel = Label(root, text="CPF :", font=('Arial', 15))
+estidLabel = Label(root, text="Titulo :", font=('Arial', 15))
 nomeLabel = Label(root, text="Nome :", font=('Arial', 15))
 s_nomeLabel = Label(root, text="S_Nome :", font=('Arial', 15))
 enderecoLabel = Label(root, text="Endereco :", font=('Arial', 15))
@@ -341,7 +381,7 @@ my_tree.column("S_Nome", anchor=W, width=150)
 my_tree.column("Endereco", anchor=W, width=165)
 my_tree.column("Telefone", anchor=W, width=150)
 
-my_tree.heading("CPF", text="CPF", anchor=W)
+my_tree.heading("CPF", text="Titulo", anchor=W)
 my_tree.heading("Nome", text="Nome", anchor=W)
 my_tree.heading("S_Nome", text="S_Nome", anchor=W)
 my_tree.heading("Endereco", text="Endereco", anchor=W)
