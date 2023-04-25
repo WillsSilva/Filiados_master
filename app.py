@@ -4,22 +4,15 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 import tkinter as tk
-from constants import (
-    CAD_ICONE_SOURCE,
-    ATUALIZAR_ICONE_SOURCE,
-    DELETAR_ICONE_SOURCE,
-    PESQUISAR_ICONE_SOURCE,
-    RESETAR_ICONE_SOURCE,
-    SELECIONAR_ICONE_SOURCE,
-)
+from constants import images, db
 
 
 def connection():
     conn = pymysql.connect(
-        host="localhost",
-        user="root",
-        password="123456",
-        db="filiados_db",
+        host=db["host"],
+        user=db["user"],
+        password=db["password"],
+        db=db["db"],
     )
     return conn
 
@@ -49,12 +42,12 @@ ph4 = tk.StringVar()
 ph5 = tk.StringVar()
 ph6 = tk.StringVar()
 
-cad_icone = PhotoImage(file=CAD_ICONE_SOURCE)
-atualizar_icone = PhotoImage(file=ATUALIZAR_ICONE_SOURCE)
-deletar_icone = PhotoImage(file=DELETAR_ICONE_SOURCE)
-pesquisar_icone = PhotoImage(file=PESQUISAR_ICONE_SOURCE)
-resetar_icone = PhotoImage(file=RESETAR_ICONE_SOURCE)
-selecionar_icone = PhotoImage(file=SELECIONAR_ICONE_SOURCE)
+cad_icone = PhotoImage(file=images["CAD_ICONE_SOURCE"])
+atualizar_icone = PhotoImage(file=images["ATUALIZAR_ICONE_SOURCE"])
+deletar_icone = PhotoImage(file=images["DELETAR_ICONE_SOURCE"])
+pesquisar_icone = PhotoImage(file=images["PESQUISAR_ICONE_SOURCE"])
+resetar_icone = PhotoImage(file=images["RESETAR_ICONE_SOURCE"])
+selecionar_icone = PhotoImage(file=images["SELECIONAR_ICONE_SOURCE"])
 
 
 def setph(word, num):
